@@ -8,6 +8,7 @@ function myFunction() {
         clearInterval(myTimer);
         console.log("cleared")
         $(".playground").append("<div class=\"box\"></div>");
+         $(".playground").append("<div class=\"ball\"><img src=\"img/ball.png\"></div>");
     }
 
 }
