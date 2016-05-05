@@ -47,10 +47,18 @@
 .ball {
     height: 50px;
     width: 50px;
+    position: absolute;
     /* position: relative; */
     /* margin: 0; */
     /* border-radius: 11px; */
     /* top: 450px; */
     /* left: 38%; */
     /* z-index: 66; */
+}
+
+
+body img{
+        width: 50px;
+        left: 59%;
+        position: relative;
 }
