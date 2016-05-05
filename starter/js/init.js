@@ -1,7 +1,7 @@
 
 i = 0;
 function myFunction() {
-    $(".playground").append("<div class=\"brick col-sm-2 col-xs-2 col-md-2\" ></div>");
+    $(".playground").append("<div class=\"brick col-sm-2 col-xs-2 col-md-2\" id=\"brick"+i+"\"></div>");
     i++;
     console.log("printing brick " + i);
     if (i > 23) {
