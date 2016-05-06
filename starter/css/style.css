@@ -34,12 +34,12 @@
 
 .box {
     width: 137px;
-    height: 30px;
+    height: 10px;
     position: relative;
     margin: 0;
     background-color: rgb(53, 27, 82);
     border-radius: 11px;
-    top: 450px;
+    top: 470px;
     left: 38%;
 }
 

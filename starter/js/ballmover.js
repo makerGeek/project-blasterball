@@ -2,7 +2,7 @@ $(document).ready(function() {
     setTimeout(
     function() 
     {
-        myTimer = setInterval(myFunction, 30);
+        myTimer = setInterval(myFunction, 10);
         console.log("started ballmover");
     }, 2000);
 }
@@ -11,8 +11,9 @@ $(document).ready(function() {
 
 j = 0;
 
-var xSpeed=10;
-var ySpeed=10;
+var xSpeed=3;
+var ySpeed=3;
+var speed=3;
 var offset = $(".playground").offset();
 var topLimit = offset.top;
 var leftLimit = offset.left;
@@ -30,8 +31,7 @@ var rightLimit = 900;
 */
 
 function myFunction() {
-    console.log("ooooo");
-    
+   
     var y = $(".ball").offset().top;
     var x = $(".ball").offset().left;
     var box = $(".box");
@@ -41,9 +41,9 @@ function myFunction() {
     });
 
   
-    if (y > $(".box").offset().top - 20 && y < $(".box").offset().top + 20) {
-        if (x > box.offset().left && x < box.offset().left + box.width())
-            ySpeed = -10;
+    if (y+$(".ball").height() > $(".box").offset().top-2 && y+$(".ball").height() < $(".box").offset().top+2) {
+        if (x+$(".ball").width() > box.offset().left && x < box.offset().left + box.width())
+            ySpeed = -speed;
     
     } 
       /*
@@ -54,16 +54,16 @@ function myFunction() {
 
     
     if(y+$(".ball").height() > bottomLimit){
-        ySpeed=-10;
+        ySpeed=-speed;
     }
     if (y < topLimit) {
-        ySpeed = 10;
+        ySpeed = speed;
     }
     if (x+$(".ball").width() > rightLimit) {
-        xSpeed = -10;
+        xSpeed = -speed;
     }
     if (x < leftLimit) {
-        xSpeed = 10;
+        xSpeed = speed;
     }
     j++;
     if (j > 4000) {
