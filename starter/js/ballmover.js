@@ -46,15 +46,11 @@ function myFunction() {
             ySpeed = -speed;
 
     }
-      /*
-    else
-    if (y > bottomLimit)
-        clearInterval(myTimer);
-        */
 
 
     if(y+$(".ball").height() > bottomLimit){
-        ySpeed=-speed;
+                clearInterval(myTimer);
+
     }
     if (y < topLimit) {
         ySpeed = speed;
