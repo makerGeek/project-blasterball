@@ -1,6 +1,6 @@
 $(document).ready(function() {
     setTimeout(
-    function() 
+    function()
     {
         myTimer = setInterval(myFunction, 10);
         console.log("started ballmover");
@@ -31,7 +31,7 @@ var rightLimit = 900;
 */
 
 function myFunction() {
-   
+
     var y = $(".ball").offset().top;
     var x = $(".ball").offset().left;
     var box = $(".box");
@@ -40,19 +40,19 @@ function myFunction() {
         left: x + xSpeed
     });
 
-  
+
     if (y+$(".ball").height() > $(".box").offset().top-2 && y+$(".ball").height() < $(".box").offset().top+2) {
         if (x+$(".ball").width() > box.offset().left && x < box.offset().left + box.width())
             ySpeed = -speed;
-    
-    } 
+
+    }
       /*
-    else 
+    else
     if (y > bottomLimit)
         clearInterval(myTimer);
         */
 
-    
+
     if(y+$(".ball").height() > bottomLimit){
         ySpeed=-speed;
     }
@@ -66,8 +66,10 @@ function myFunction() {
         xSpeed = speed;
     }
     j++;
-    if (j > 4000) {
+
+    //uncomment to make the game stop after some time
+    /*if (j > 4000) {
         clearInterval(myTimer);
-    }
+    }*/
 
 }
