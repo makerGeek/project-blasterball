@@ -41,6 +41,16 @@ function myFunction() {
     });
 
 
+    for(var i=0 ; i<23;i++){
+        var brick = $("#brick"+i);
+        console.log(brick);
+        if(x>brick.offset().left && x<brick.offset().left +brick.width() && y>brick.offset().top+brick.height()-5 && y<brick.offset().top+brick.height()+5){
+            ySpeed=speed;
+        }
+
+    }
+
+
     if (y+$(".ball").height() > $(".box").offset().top-2 && y+$(".ball").height() < $(".box").offset().top+2) {
         if (x+$(".ball").width() > box.offset().left && x < box.offset().left + box.width())
             ySpeed = -speed;
