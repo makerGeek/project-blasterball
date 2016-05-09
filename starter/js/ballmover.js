@@ -32,23 +32,56 @@ var rightLimit = leftLimit + $(".playground").innerWidth();
 var y;
 var x;
 
-/*
-var xSpeed = 10;
-var ySpeed = 10;
-var topLimit = 40;
-var leftLimit = 380;
-var bottomLimit = 550;
-var rightLimit = 900;
-*/
-
 
 function hitListener() {
-    for (var i = 0; i < 23; i++) {
+    for (var i = 0; i < 24; i++) {
         var brick = $("#brick" + i);
 
         //check if the ball hit the brick from the bottom
-        if (brick.css("opacity") == 1 && x > brick.offset().left - 5 && x < brick.offset().left + brick.width() + 5 && y > brick.offset().top + brick.height() - 5 && y < brick.offset().top + brick.height() + 5) {
+        if (
+        brick.css("opacity") == 1 
+        && x+ $(".ball").width()/2  > brick.offset().left - 5 
+        && x+ $(".ball").width()/2 < brick.offset().left + brick.width() + 5 
+        && y > brick.offset().top + brick.height() - 5 
+        && y < brick.offset().top + brick.height() + 5
+        ) {
             ySpeed = speed;
+            brick.fadeTo("fast", 0.2);
+        }
+
+            //check if the ball hit the brick from the left
+        if (
+        brick.css("opacity") == 1 
+        && x > brick.offset().left - 5 
+        && x < brick.offset().left + 5 
+        && y > brick.offset().top  - 5 
+        && y < brick.offset().top + brick.height() + 5
+        ) {
+            xSpeed = -speed;
+            brick.fadeTo("fast", 0.2);
+        }
+
+            //check if the ball hit the brick from the right
+        if (
+        brick.css("opacity") == 1 
+        && x > brick.offset().left + brick.width() - 5 
+        && x < brick.offset().left + brick.width() + 5 
+        && y > brick.offset().top  - 5 
+        && y < brick.offset().top + brick.height() + 5
+        ) {
+            xSpeed = speed;
+            brick.fadeTo("fast", 0.2);
+        }
+
+            //check if the ball hit the brick from the top
+        if (
+        brick.css("opacity") == 1 
+        && x > brick.offset().left - 5 
+        && x < brick.offset().left + brick.width() + 5 
+        && y > brick.offset().top  - 5 
+        && y < brick.offset().top  + 5
+        ) {
+            ySpeed = -speed;
             brick.fadeTo("fast", 0.2);
         }
     
