@@ -35,9 +35,11 @@ $(document).keyup(function(e) {
       if(gameOn==1){
            clearInterval(myTimer);
         gameOn=0;
+            $(".playground").css("background", "crimson");
       } else {
           gameOn=1;
           myTimer = setInterval(myFunction, 15);
+           $(".playground").css("background", "rgba(97, 221, 158, 0.63)");
       }
 
   }
