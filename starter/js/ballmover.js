@@ -45,17 +45,26 @@ var score = 0;
 
 //volume and music control
 
-$('#music').change(
+$('#sounds').change(
 function() {
     if ($(this).is(':checked')) {
         bip.volume = 0;
         clap.volume = 0;
         belch.volume = 0;
-        music.volume = 0;
     } else {
         bip.volume = 0;
         clap.volume = 0;
         belch.volume = 0.1;
+    
+    }
+});
+
+
+$('#music').change(
+function() {
+    if ($(this).is(':checked')) {
+        music.volume = 0;
+    } else {
         music.volume = 0.5;
     
     }
