@@ -1,14 +1,13 @@
 
 
 
-pos = 0;
 $(document).keydown(function(e) {
+    var box = $(".box");
     switch (e.which) {
     case 37:
         //left arrow key
-        if (pos < -3)
+        if (box.offset().left-55< $(".playground").offset().left)
             break;
-        pos--;
         $(".box").finish().animate({
             left: "-=55"
         });
@@ -16,16 +15,14 @@ $(document).keydown(function(e) {
 
     case 39:
         //right arrow key
-        if (pos > 3)
+        if (box.offset().left+55+box.width()> $(".playground").offset().left+ $(".playground").width())
             break;
-        pos++;
         $(".box").finish().animate({
             left: "+=55"
         });
         break;
 
     }
-    console.log(pos)
 });
 
 
