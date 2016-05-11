@@ -23,6 +23,13 @@ j = 0;
 var bip = new Audio("sounds/bip.mp3");
 var clap = new Audio("sounds/clap.mp3");
 var belch = new Audio("sounds/belch.mp3");
+var music = new Audio("sounds/music.mp3");
+music.volume = .5;
+music.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
+music.play();
 var xSpeed = 3;
 var ySpeed = 3;
 var speed = 3;
@@ -105,6 +112,20 @@ function hitListener() {
 
 function myFunction() {
     
+    if ($('#music').is(":checked")) 
+    {
+        bip.pause();
+        clap.pause();
+        belch.pause();
+        music.pause();
+        bip = new Audio("sounds/silent.mp3");
+        clap = new Audio("sounds/silent.mp3");
+        belch = new Audio("sounds/silent.mp3");
+        music = new Audio("sounds/silent.mp3");
+    } else {
+    
+    }
+    
     y = $(".ball").offset().top;
     x = $(".ball").offset().left;
     var box = $(".box");
@@ -127,20 +148,21 @@ function myFunction() {
     
     
     if (y + $(".ball").height() > bottomLimit) {
+        music.pause();
         belch.play();
         clearInterval(myTimer);
     
     }
     if (y < topLimit) {
-                    clap.play();
+        clap.play();
         ySpeed = speed;
     }
     if (x + $(".ball").width() > rightLimit) {
-                    clap.play();
+        clap.play();
         xSpeed = -speed;
     }
     if (x < leftLimit) {
-                    clap.play();
+        clap.play();
         xSpeed = speed;
     }
     j++;
