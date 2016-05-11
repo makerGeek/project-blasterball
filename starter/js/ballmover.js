@@ -13,9 +13,8 @@ $(document).ready(function() {
         console.log("started hitListener");
     }, 3000);
 
-
 }
-)
+);
 
 
 
@@ -23,6 +22,7 @@ j = 0;
 var bip = new Audio("sounds/bip.mp3");
 var clap = new Audio("sounds/clap.mp3");
 var belch = new Audio("sounds/belch.mp3");
+belch.volume = .1;
 var music = new Audio("sounds/music.mp3");
 music.volume = .5;
 music.addEventListener('ended', function() {
@@ -41,6 +41,29 @@ var rightLimit = leftLimit + $(".playground").innerWidth();
 var y;
 var x;
 var score = 0;
+
+
+//volume and music control
+
+$('#music').change(
+function() {
+    if ($(this).is(':checked')) {
+        bip.volume = 0;
+        clap.volume = 0;
+        belch.volume = 0;
+        music.volume = 0;
+    } else {
+        bip.volume = 0;
+        clap.volume = 0;
+        belch.volume = 0.1;
+        music.volume = 0.5;
+    
+    }
+});
+
+
+// end of volume and music control
+
 
 
 function hitListener() {
@@ -112,19 +135,7 @@ function hitListener() {
 
 function myFunction() {
     
-    if ($('#music').is(":checked")) 
-    {
-        bip.pause();
-        clap.pause();
-        belch.pause();
-        music.pause();
-        bip = new Audio("sounds/silent.mp3");
-        clap = new Audio("sounds/silent.mp3");
-        belch = new Audio("sounds/silent.mp3");
-        music = new Audio("sounds/silent.mp3");
-    } else {
     
-    }
     
     y = $(".ball").offset().top;
     x = $(".ball").offset().left;
