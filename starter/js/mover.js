@@ -27,3 +27,18 @@ $(document).keydown(function(e) {
     }
     console.log(pos)
 });
+
+
+var gameOn=1;
+$(document).keyup(function(e) {
+  if (e.keyCode === 27) {
+      if(gameOn==1){
+           clearInterval(myTimer);
+        gameOn=0;
+      } else {
+          gameOn=1;
+          myTimer = setInterval(myFunction, 15);
+      }
+
+  }
+});
