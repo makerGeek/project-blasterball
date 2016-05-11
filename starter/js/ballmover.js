@@ -20,7 +20,9 @@ $(document).ready(function() {
 
 
 j = 0;
-
+var bip = new Audio("sounds/bip.mp3");
+var clap = new Audio("sounds/clap.mp3");
+var belch = new Audio("sounds/belch.mp3");
 var xSpeed = 3;
 var ySpeed = 3;
 var speed = 3;
@@ -46,6 +48,7 @@ function hitListener() {
         && y > brick.offset().top + brick.height() - 5 
         && y < brick.offset().top + brick.height() + 5
         ) {
+            bip.play();
             ySpeed = speed;
             brick.fadeTo("fast", 0.2);
             score += 10;
@@ -60,6 +63,7 @@ function hitListener() {
         && y > brick.offset().top - 5 
         && y < brick.offset().top + brick.height() + 5
         ) {
+            bip.play();
             xSpeed = -speed;
             brick.fadeTo("fast", 0.2);
             score += 10;
@@ -74,6 +78,7 @@ function hitListener() {
         && y > brick.offset().top - 5 
         && y < brick.offset().top + brick.height() + 5
         ) {
+            bip.play();
             xSpeed = speed;
             brick.fadeTo("fast", 0.2);
             score += 10;
@@ -88,6 +93,7 @@ function hitListener() {
         && y > brick.offset().top - 5 
         && y < brick.offset().top + 5
         ) {
+            bip.play();
             ySpeed = -speed;
             brick.fadeTo("fast", 0.2);
             score += 10;
@@ -112,6 +118,7 @@ function myFunction() {
     
     if (y + $(".ball").height() > $(".box").offset().top - 2 && y + $(".ball").height() < $(".box").offset().top + 2) {
         if (x + $(".ball").width() > box.offset().left && x < box.offset().left + box.width()) {
+            clap.play();
             ySpeed = -speed;
         }
     
@@ -120,16 +127,20 @@ function myFunction() {
     
     
     if (y + $(".ball").height() > bottomLimit) {
+        belch.play();
         clearInterval(myTimer);
     
     }
     if (y < topLimit) {
+                    clap.play();
         ySpeed = speed;
     }
     if (x + $(".ball").width() > rightLimit) {
+                    clap.play();
         xSpeed = -speed;
     }
     if (x < leftLimit) {
+                    clap.play();
         xSpeed = speed;
     }
     j++;
