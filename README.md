@@ -1,2 +1,4 @@
-# simple bounce ball game
-#live demo: bounce.bencharrada.com
+### simple bounce ball game
+
+###live demo: 
+<a href="http://bounce.bencharrada.com">bounce.bencharrada.com</a>
