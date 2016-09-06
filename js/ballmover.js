@@ -21,7 +21,7 @@ $(document).ready(function() {
 j = 0;
 var bip = new Audio("sounds/bip.mp3");
 var clap = new Audio("sounds/clap.mp3");
-var belch = new Audio("sounds/belch.mp3");
+var belch = new Audio("sounds/gameover.wav");
 belch.volume = .1;
 var music = new Audio("sounds/music.mp3");
 music.volume = .5;
