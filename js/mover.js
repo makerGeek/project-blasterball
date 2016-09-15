@@ -7,7 +7,10 @@ $(document).keydown(function(e) {
     case 37:
         //left arrow key
         if (box.offset().left-55< $(".playground").offset().left)
-            break;
+            $(".box").finish().animate({
+                left: "-=".concat(box.offset().left-$(".playground").offset().left-9)
+            });
+        else
         $(".box").finish().animate({
             left: "-=55"
         });
@@ -16,8 +19,11 @@ $(document).keydown(function(e) {
     case 39:
         //right arrow key
         if (box.offset().left+55+box.width()> $(".playground").offset().left+ $(".playground").width())
-            break;
-        $(".box").finish().animate({
+            $(".box").finish().animate({
+                left: "+=".concat($(".playground").offset().left+$(".playground").width()-box.offset().left-box.width()+9)
+            });
+        else
+            $(".box").finish().animate({
             left: "+=55"
         });
         break;
