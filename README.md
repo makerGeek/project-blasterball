@@ -1,4 +1,4 @@
 ### simple bounce ball game
 
 ###live demo: 
-<a href="http://bounce.bencharrada.com">bounce.bencharrada.com</a>
+<a href="makergeek.github.io/projects/bounceball/">makergeek.github.io/projects/bounceball/</a>
